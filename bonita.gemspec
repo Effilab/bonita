@@ -35,7 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "kartograph", "~> 0.2.4"
   spec.add_dependency "resource_kit", "~> 0.1.6"
 
-  spec.add_development_dependency "bundler", "~> 1.14"
+  spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "rubocop", "~> 0.59.2"

@@ -16,8 +16,8 @@ RSpec.describe Bonita::Bpm::CaseVariableResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end
@@ -49,8 +49,8 @@ RSpec.describe Bonita::Bpm::CaseVariableResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.put(path, request_body.to_json) { [200, {}, response_body.to_json] }
       end
     end
@@ -74,8 +74,8 @@ RSpec.describe Bonita::Bpm::CaseVariableResource, type: :integration do
       ]
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end

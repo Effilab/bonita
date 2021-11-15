@@ -10,8 +10,8 @@ RSpec.describe Bonita::Bdm::BusinessDataResource, type: :integration do
       { foo: "bar" }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end
@@ -25,7 +25,7 @@ RSpec.describe Bonita::Bdm::BusinessDataResource, type: :integration do
 
   describe "#search" do
     let(:path) do
-      "/bonita/API/bdm/businessData/com.company.model.Employee?c=10&f=firstName%3DJohn&f=lastname%3DDoe&p=0&q=findEmployeeByFirstNameAndLastName&p=0" # rubocop:disable Metrics/LineLength
+      "/bonita/API/bdm/businessData/com.company.model.Employee" # rubocop:disable Metrics/LineLength
     end
 
     let(:response_body) do
@@ -37,8 +37,8 @@ RSpec.describe Bonita::Bdm::BusinessDataResource, type: :integration do
       ]
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end
