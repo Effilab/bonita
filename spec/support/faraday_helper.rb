@@ -15,12 +15,12 @@ module Bonita::FaradayHelper
     }
   end
 
-  def build_connection(&block)
+  def build_connection
     Faraday.new(connection_options) do |conn|
       conn.use Faraday::Request::UrlEncoded
       conn.adapter :test do |stubs|
         # stubs.strict_mode = true
-        block.call(stubs)
+        yield(stubs)
       end
     end
   end

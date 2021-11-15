@@ -17,7 +17,6 @@ RSpec.describe Bonita::Client, type: :integration do
     }
   end
 
-
   subject do
     described_class.new(options)
   end

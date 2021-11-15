@@ -97,7 +97,7 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
 
   describe "#search" do
     let(:path) do
-      "bonita/API/bpm/case" # rubocop:disable Metrics/LineLength
+      "bonita/API/bpm/case"
     end
 
     let(:response_body) do

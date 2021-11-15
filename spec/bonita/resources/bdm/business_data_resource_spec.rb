@@ -25,7 +25,7 @@ RSpec.describe Bonita::Bdm::BusinessDataResource, type: :integration do
 
   describe "#search" do
     let(:path) do
-      "/bonita/API/bdm/businessData/com.company.model.Employee" # rubocop:disable Metrics/LineLength
+      "/bonita/API/bdm/businessData/com.company.model.Employee"
     end
 
     let(:response_body) do
