@@ -32,8 +32,8 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, body.to_json] }
       end
     end
@@ -82,8 +82,8 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.post(path, request_body.to_json) { [200, {}, response_body.to_json] }
       end
     end
@@ -97,7 +97,7 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
 
   describe "#search" do
     let(:path) do
-      "bonita/API/bpm/case?c=3&p=2&o=name&d=processDefinitionId&d=started_by&d=startedBySubstitute&s=foo&f=activationState=DISABLED"
+      "bonita/API/bpm/case"
     end
 
     let(:response_body) do
@@ -107,8 +107,8 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
       ]
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end
@@ -132,8 +132,8 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
   describe "#delete" do
     let(:path) { "bonita/API/bpm/case/1" }
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.delete(path) { [200, {}, nil] }
       end
     end
@@ -153,8 +153,8 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
       %w[1 2 3 4 5]
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.delete(path) { [200, {}, nil] }
       end
     end
@@ -175,8 +175,8 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
       {foo: "bar"}
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end

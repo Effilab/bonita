@@ -29,8 +29,8 @@ RSpec.describe Bonita::Customuserinfo::UserResource, type: :integration do
       ]
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end

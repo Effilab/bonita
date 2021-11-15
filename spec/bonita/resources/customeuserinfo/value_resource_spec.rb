@@ -10,8 +10,8 @@ RSpec.describe Bonita::Customuserinfo::ValueResource, type: :integration do
       {value: "foo"}
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.put(path, request_body.to_json) { [200, {}, nil] }
       end
     end

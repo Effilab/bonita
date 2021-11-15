@@ -5,8 +5,8 @@ module Bonita::ErrorHandlerExamples
     described_class.resources.each do |action|
       describe "##{action.name}" do
         context "404 error" do
-          before do
-            stub_request(connection) do |stub|
+          let(:connection) do
+            build_connection do |stub|
               stub.public_send(action.verb, action.path) { [404, {}, "{}"] }
             end
           end

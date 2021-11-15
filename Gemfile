@@ -9,5 +9,6 @@ gem "standard", "1.4.0"
 
 group :test do
   # Test formatter used by circle ci
+  gem "byebug"
   gem "rspec_junit_formatter"
 end

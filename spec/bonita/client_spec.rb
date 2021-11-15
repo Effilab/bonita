@@ -53,10 +53,14 @@ RSpec.describe Bonita::Client, type: :integration do
 
   describe "#login" do
     context "when unable to log in" do
-      before do
-        stub_request(subject.connection) do |stub|
+      let(:connection) do
+        build_connection do |stub|
           stub.post("/bonita/loginservice") { [200, {}, "Unable to log in"] }
         end
+      end
+
+      before do
+        allow(subject).to receive(:connection) { connection }
       end
 
       it "raises Bonita::AuthError" do
@@ -69,7 +73,7 @@ RSpec.describe Bonita::Client, type: :integration do
         include_context "logged in"
 
         it "does not perform additional request" do
-          expect(connection).not_to receive(:post)
+          expect(subject.connection).not_to receive(:post)
           subject.login
         end
       end
@@ -167,7 +171,7 @@ RSpec.describe Bonita::Client, type: :integration do
             it "returns #{v} constant" do
               expect(
                 subject.public_send(key).public_send(k).class
-              ).to eql Object.const_get("Bonita::#{v}")
+              ).to eql Object.const_get(v.to_s)
             end
           end
         end
