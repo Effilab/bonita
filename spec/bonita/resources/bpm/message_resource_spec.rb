@@ -36,8 +36,8 @@ RSpec.describe Bonita::Bpm::MessageResource, type: :integration do
       ""
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.post(path, request_body.to_json) { [204, {}, response_body.to_json] }
       end
     end

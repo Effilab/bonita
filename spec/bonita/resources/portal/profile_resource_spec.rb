@@ -20,8 +20,8 @@ RSpec.describe Bonita::Portal::ProfileResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end
@@ -52,8 +52,8 @@ RSpec.describe Bonita::Portal::ProfileResource, type: :integration do
       ]
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end
@@ -97,8 +97,8 @@ RSpec.describe Bonita::Portal::ProfileResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.post(path, request_body.to_json) { [200, {}, response_body.to_json] }
       end
     end
@@ -123,8 +123,8 @@ RSpec.describe Bonita::Portal::ProfileResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.put(path, request_body.to_json) { [200, {}, nil] }
       end
     end
@@ -141,8 +141,8 @@ RSpec.describe Bonita::Portal::ProfileResource, type: :integration do
   describe "#delete" do
     let(:path) { "/bonita/API/portal/profile/1" }
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.delete(path) { [200, {}, nil] }
       end
     end

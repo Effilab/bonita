@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "byebug"
 require "bundler/setup"
 require "bonita"
 require "support/faraday_helper"

@@ -31,8 +31,8 @@ RSpec.describe Bonita::Bpm::UserTaskResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end
@@ -53,8 +53,8 @@ RSpec.describe Bonita::Bpm::UserTaskResource, type: :integration do
       { foo: "bar" }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.get(path) { [200, {}, response_body.to_json] }
       end
     end
@@ -77,8 +77,8 @@ RSpec.describe Bonita::Bpm::UserTaskResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.post(path, request_body.to_json) { [200, {}, nil] }
       end
     end
@@ -100,8 +100,8 @@ RSpec.describe Bonita::Bpm::UserTaskResource, type: :integration do
       }
     end
 
-    before do
-      stub_request(connection) do |stub|
+    let(:connection) do
+      build_connection do |stub|
         stub.put(path, request_body.to_json) { [200, {}, nil] }
       end
     end
