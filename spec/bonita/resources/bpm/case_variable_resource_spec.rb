@@ -69,8 +69,8 @@ RSpec.describe Bonita::Bpm::CaseVariableResource, type: :integration do
 
     let(:response_body) do
       [
-        { name: "foo" },
-        { name: "bar" }
+        {name: "foo"},
+        {name: "bar"}
       ]
     end
 

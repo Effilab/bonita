@@ -6,7 +6,7 @@ module Bonita
     class UserResource < ResourceKit::Resource
       include ErrorHandler
 
-      resources do # rubocop:disable Metrics/BlockLength
+      resources do
         action :read do
           path "bonita/API/identity/user/:userId"
           query_keys :d
@@ -46,14 +46,14 @@ module Bonita
         action :enable do
           path "bonita/API/identity/user/:userId"
           verb :put
-          body { { enabled: "true" }.to_json }
+          body { {enabled: "true"}.to_json }
           handler(200) { true }
         end
 
         action :disable do
           path "bonita/API/identity/user/:userId"
           verb :put
-          body { { enabled: "false" }.to_json }
+          body { {enabled: "false"}.to_json }
           handler(200) { true }
         end
       end

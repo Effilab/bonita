@@ -8,11 +8,11 @@ module Bonita
       if body["exception"]
         mapping = Bonita::ErrorMapping.extract_single(body, :read)
         @java_exception = mapping.exception
-        @error_message  = mapping.message
-        @explanations   = mapping.explanations
-        @status         = status
-        @request_url    = request_url
-        values = Hash[instance_variables.map { |name| [name, instance_variable_get(name)] }]
+        @error_message = mapping.message
+        @explanations = mapping.explanations
+        @status = status
+        @request_url = request_url
+        values = instance_variables.map { |name| [name, instance_variable_get(name)] }.to_h
       else
         values = body
       end
@@ -21,8 +21,8 @@ module Bonita
     end
   end
 
-  AuthError            = Class.new(StandardError)
-  ForbiddenError       = Class.new(StandardError)
-  RecordNotFoundError  = Class.new(StandardError)
-  UnauthorizedError    = Class.new(StandardError)
+  AuthError = Class.new(StandardError)
+  ForbiddenError = Class.new(StandardError)
+  RecordNotFoundError = Class.new(StandardError)
+  UnauthorizedError = Class.new(StandardError)
 end

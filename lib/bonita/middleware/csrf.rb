@@ -10,7 +10,7 @@ module Bonita
 
       def call(env)
         if env[:request_headers]["Cookie"]
-          token = /X\-Bonita\-API\-Token=([a-f0-9\-]+)/.match(env[:request_headers]["Cookie"])&.captures&.first
+          token = /X-Bonita-API-Token=([a-f0-9\-]+)/.match(env[:request_headers]["Cookie"])&.captures&.first
           env[:request_headers]["X-Bonita-API-Token"] = token if token
         end
         @app.call(env)

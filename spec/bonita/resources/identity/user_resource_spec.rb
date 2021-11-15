@@ -6,7 +6,7 @@ RSpec.describe Bonita::Identity::UserResource, type: :integration do
   describe "#read" do
     let(:path) { "/bonita/API/identity/user/1?d=professional_data&d=manager_id" }
 
-    let(:response_body) do # rubocop:disable Metrics/BlockLength
+    let(:response_body) do
       {
         last_connection: "date",
         created_by_user_id: "number",

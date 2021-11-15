@@ -95,14 +95,14 @@ RSpec.describe Bonita::Client, type: :integration do
 
         context "with a tenant" do
           let(:tenant) { "tenant" }
-          let(:expected_body) { { username: "username", password: "password", tenant: "tenant" } }
+          let(:expected_body) { {username: "username", password: "password", tenant: "tenant"} }
 
           it_behaves_like "a login request"
         end
 
         context "without a tenant" do
           let(:tenant) { nil }
-          let(:expected_body) { { username: "username", password: "password" } }
+          let(:expected_body) { {username: "username", password: "password"} }
 
           it_behaves_like "a login request"
         end

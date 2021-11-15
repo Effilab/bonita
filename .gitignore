@@ -9,6 +9,7 @@
 /tmp/
 .byebug_history
 .rubocop-*
+.cache/
 
 # rspec failure tracking
 .rspec_status

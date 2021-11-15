@@ -116,7 +116,7 @@ module Bonita
     private
 
     def logger
-      @logger || ::Logger.new(STDERR)
+      @logger || ::Logger.new($stderr)
     end
 
     def log_api_bodies?

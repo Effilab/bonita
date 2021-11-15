@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 module Bonita::ErrorHandler
-  def self.included(base) # rubocop:disable Metrics/AbcSize
+  def self.included(base)
     base.send(:resources) do
       default_handler do |response|
         next if (200...299).cover?(response.status)
 
         case response.status
         when 401
-          if response.respond_to?(:reason_phrase) # rubocop:disable Style/GuardClause
+          if response.respond_to?(:reason_phrase)
             raise Bonita::UnauthorizedError, response.reason_phrase
           else
             raise Bonita::AuthError

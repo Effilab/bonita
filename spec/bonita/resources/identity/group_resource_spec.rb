@@ -39,8 +39,8 @@ RSpec.describe Bonita::Identity::GroupResource, type: :integration do
 
     let(:response_body) do
       [
-        { id: "foo" },
-        { id: "bar" }
+        {id: "foo"},
+        {id: "bar"}
       ]
     end
 

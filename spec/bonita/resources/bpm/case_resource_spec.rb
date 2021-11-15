@@ -97,13 +97,13 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
 
   describe "#search" do
     let(:path) do
-      "bonita/API/bpm/case?c=3&p=2&o=name&d=processDefinitionId&d=started_by&d=startedBySubstitute&s=foo&f=activationState=DISABLED" # rubocop:disable Metrics/LineLength
+      "bonita/API/bpm/case?c=3&p=2&o=name&d=processDefinitionId&d=started_by&d=startedBySubstitute&s=foo&f=activationState=DISABLED"
     end
 
     let(:response_body) do
       [
-        { id: "foo" },
-        { id: "bar" }
+        {id: "foo"},
+        {id: "bar"}
       ]
     end
 
@@ -172,7 +172,7 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
     let(:path) { "bonita/API/bpm/case/1/context" }
 
     let(:response_body) do
-      { foo: "bar" }
+      {foo: "bar"}
     end
 
     before do

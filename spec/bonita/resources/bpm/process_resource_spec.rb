@@ -39,13 +39,13 @@ RSpec.describe Bonita::Bpm::ProcessResource, type: :integration do
 
   describe "#search" do
     let(:path) do
-      "bonita/API/bpm/process?c=3&p=2&o=name&d=deployedBy&s=foo&f=activationState=DISABLED" # rubocop:disable Metrics/LineLength
+      "bonita/API/bpm/process?c=3&p=2&o=name&d=deployedBy&s=foo&f=activationState=DISABLED"
     end
 
     let(:response_body) do
       [
-        { id: "foo" },
-        { id: "bar" }
+        {id: "foo"},
+        {id: "bar"}
       ]
     end
 
