@@ -7,7 +7,7 @@ RSpec.describe Bonita::Customuserinfo::ValueResource, type: :integration do
     let(:path) { "/bonita/API/customuserinfo/value/1/2" }
 
     let(:request_body) do
-      { value: "foo" }
+      {value: "foo"}
     end
 
     let(:connection) do

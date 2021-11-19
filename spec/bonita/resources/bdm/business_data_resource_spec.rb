@@ -7,7 +7,7 @@ RSpec.describe Bonita::Bdm::BusinessDataResource, type: :integration do
     let(:path) { "/bonita/API/bdm/businessData/com.company.model.Contract/1" }
 
     let(:response_body) do
-      { foo: "bar" }
+      {foo: "bar"}
     end
 
     let(:connection) do

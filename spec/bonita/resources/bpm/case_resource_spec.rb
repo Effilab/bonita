@@ -102,8 +102,8 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
 
     let(:response_body) do
       [
-        { id: "foo" },
-        { id: "bar" }
+        {id: "foo"},
+        {id: "bar"}
       ]
     end
 
@@ -172,7 +172,7 @@ RSpec.describe Bonita::Bpm::CaseResource, type: :integration do
     let(:path) { "bonita/API/bpm/case/1/context" }
 
     let(:response_body) do
-      { foo: "bar" }
+      {foo: "bar"}
     end
 
     let(:connection) do

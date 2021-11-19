@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-       - image: circleci/ruby:2.6.1-node-browsers
+       - image: ruby:3.0.2
 
     working_directory: ~/bonita
 
@@ -19,10 +19,7 @@ jobs:
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
 
-      # rubocop check
-      - run:
-          name: Rubocop Check
-          command: bundle exec rubocop
+      - run: bundle exec standardrb
 
       # run tests!
       - run:

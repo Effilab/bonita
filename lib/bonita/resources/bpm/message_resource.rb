@@ -9,7 +9,7 @@ module Bonita
         action :send_event do
           path "bonita/API/bpm/message"
           verb :post
-          body { |object| object.to_json } # rubocop:disable Style/SymbolProc
+          body { |object| object.to_json }
           handler(204) { true }
         end
       end

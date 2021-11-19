@@ -38,7 +38,7 @@ module Bonita
           path "bonita/API/bpm/case"
           verb :delete
           # Raises ArgumentError "no receiver given" error if the rule is applied
-          body { |object| object.to_json } # rubocop:disable Style/SymbolProc
+          body { |object| object.to_json }
           handler(200) { true }
         end
 

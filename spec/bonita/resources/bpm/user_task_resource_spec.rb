@@ -50,7 +50,7 @@ RSpec.describe Bonita::Bpm::UserTaskResource, type: :integration do
     end
 
     let(:response_body) do
-      { foo: "bar" }
+      {foo: "bar"}
     end
 
     let(:connection) do
